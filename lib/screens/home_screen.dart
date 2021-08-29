@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-// import 'package:mobile_sensors/screens/camera.dart';
+import 'package:camera/camera.dart';
+import 'package:mobile_sensors/screens/camera.dart';
 import 'package:mobile_sensors/screens/imu.dart';
 // import 'package:mobile_sensors/screens/ros_master_uri.dart';
 
 class Homescreen extends StatefulWidget {
-  const Homescreen({Key? key}) : super(key: key);
+  // const Homescreen({Key? key}) : super(key: key);
+  final List<CameraDescription> cameras;
 
+  Homescreen(this.cameras);
   @override
   _HomescreenState createState() => _HomescreenState();
 }
@@ -15,20 +18,19 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+            'Phone as a sensor for robot.',
+          style: TextStyle(
+            color: Colors.green,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.brown,
+      ),
       body: SafeArea(
         child: ListView(
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 30.0),
-              child: Text(
-                'Use phone a sensor on your robot.',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.green.withOpacity(0.7),
-                ),
-              ),
-            ),
             SizedBox(height: 20.0),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -58,6 +60,10 @@ class _HomescreenState extends State<Homescreen> {
                     child: ElevatedButton(
                       onPressed: () {
                         print("Camera clicked");
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                              return Camera(widget.cameras);
+                            }));
                       },
                       child: Text(
                         'Camera',
