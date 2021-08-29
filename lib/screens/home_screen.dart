@@ -35,7 +35,7 @@ class _HomescreenState extends State<Homescreen> {
               children: [
                 Padding(
                     padding: EdgeInsets.only(top: 30.0),
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: () {
                         print("Camera clicked");
                       },
@@ -63,7 +63,7 @@ class _HomescreenState extends State<Homescreen> {
 
                 Padding(
                   padding: EdgeInsets.only(top: 30.0),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: () {
                       print("IMU clicked");
                     },
@@ -89,7 +89,7 @@ class _HomescreenState extends State<Homescreen> {
 
                 Padding(
                   padding: EdgeInsets.only(top: 30.0),
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: () {
                       print("Stream data clicked");
                     },
