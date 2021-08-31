@@ -18,7 +18,7 @@ class _RosStreamerState extends State<RosStreamer> {
   @override
   void initState() async {
     super.initState();
-    nh = await initNode("Hey", []);
+    nh = await initNode("Hey", [], rosMasterUri: "");
 
     imu_pub = nh.advertise<StringMessage>("/imu/raw", StringMessage.$prototype);
   }
