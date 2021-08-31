@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'dart:async';
 
-class IMU extends StatefulWidget {
-  const IMU({Key? key}) : super(key: key);
+class IMUScreen extends StatefulWidget {
+  const IMUScreen({Key? key}) : super(key: key);
 
   @override
-  _IMUState createState() => _IMUState();
+  _IMUScreenState createState() => _IMUScreenState();
 }
 
-class _IMUState extends State<IMU> {
+class _IMUScreenState extends State<IMUScreen> {
   double ax = 9.0;
 
   List<double>? _accelerometerValues;
