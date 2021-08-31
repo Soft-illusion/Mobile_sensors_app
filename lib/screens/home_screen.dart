@@ -3,7 +3,9 @@ import 'package:flutter/widgets.dart';
 import 'package:camera/camera.dart';
 import 'package:mobile_sensors/screens/camera.dart';
 import 'package:mobile_sensors/screens/imu.dart';
-// import 'package:mobile_sensors/screens/ros_master_uri.dart';
+import 'package:mobile_sensors/screens/ros_master_uri.dart';
+import 'package:mobile_sensors/screens/gps.dart';
+
 
 class Homescreen extends StatefulWidget {
   // const Homescreen({Key? key}) : super(key: key);
@@ -56,6 +58,26 @@ class _HomescreenState extends State<Homescreen> {
                   ),
                 ),
                 Padding(
+                  padding: EdgeInsets.only(top: 30.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print("GPS clicked");
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return GPS();
+                      }));
+                    },
+                    child: Text(
+                      'GPS',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.7),
+                        fontSize: 20.0,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
                     padding: EdgeInsets.only(top: 30.0),
                     child: ElevatedButton(
                       onPressed: () {
@@ -79,6 +101,10 @@ class _HomescreenState extends State<Homescreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       print("Stream data clicked");
+                      Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                              return ROS_master_URI();
+                            }));
                     },
                     child: Text(
                       'Stream Data to ROS',

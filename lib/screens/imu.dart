@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:path/path.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'dart:async';
 
@@ -70,6 +71,10 @@ class _IMUState extends State<IMU> {
               children: [
                 Text(
                   'Accelerometer : $accelerometer',
+                  style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 20.0,
+                  ),
                 ),
               ],
             ),
@@ -79,7 +84,12 @@ class _IMUState extends State<IMU> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('Gyroscope : $gyroscope'),
+                Text('Gyroscope : $gyroscope',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 20.0,
+                    ),
+                  ),
               ],
             ),
           ),
@@ -88,7 +98,12 @@ class _IMUState extends State<IMU> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('Magnetometer : $mag'),
+                Text('Magnetometer : $mag',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 20.0,
+                  ),
+                ),
               ],
             ),
           ),
