@@ -44,7 +44,7 @@ class _HomescreenState extends State<Homescreen> {
                       print("IMU clicked");
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return IMU();
+                        return IMUScreen();
                       }));
                     },
                     child: Text(
@@ -102,9 +102,9 @@ class _HomescreenState extends State<Homescreen> {
                     onPressed: () {
                       print("Stream data clicked");
                       Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                              return ROS_master_URI();
-                            }));
+                          MaterialPageRoute(builder: (context) {
+                        return RosStreamer();
+                      }));
                     },
                     child: Text(
                       'Stream Data to ROS',
