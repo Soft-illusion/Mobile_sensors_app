@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:dartx/dartx.dart';
 import 'package:std_msgs/msgs.dart';
 import 'package:sensor_msgs/msgs.dart';
+ import 'dart:io';
 
 class RosStreamer extends StatefulWidget {
   const RosStreamer({Key? key}) : super(key: key);
@@ -16,10 +17,13 @@ class _RosStreamerState extends State<RosStreamer> {
   late Publisher imu_pub;
 
   @override
-  void initState() async {
+  void initState() {
     super.initState();
-    nh = await initNode("Hey", [], rosMasterUri: "");
+    init_ros();
+  }
 
+  void init_ros() async {
+    nh = await initNode("Hey", [], rosMasterUri: "http://192.168.0.107:11311");
     imu_pub = nh.advertise<StringMessage>("/imu/raw", StringMessage.$prototype);
   }
 
@@ -31,10 +35,14 @@ class _RosStreamerState extends State<RosStreamer> {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {
-            print("Publish button pressed");
+          onPressed: () async{
             final imu_msg = StringMessage(data: "Hi!!");
-            imu_pub.publish(imu_msg);
+            for (int i=0;i<10;i++){
+              print("Publish button pressed");
+              imu_pub.publish(imu_msg,1);
+              await Future.delayed(2.seconds);
+            }
+            // sleep(const Duration(data: RosTime(secs: 1)));
           },
           child: Text(
             "Press to Publish",
