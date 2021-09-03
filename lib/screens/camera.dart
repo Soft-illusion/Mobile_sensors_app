@@ -13,7 +13,7 @@ class Camera extends StatefulWidget {
 
 class _CameraState extends State<Camera> {
   late CameraController controller;
-  bool isDetecting = false;
+  bool front = false;
 
   @override
   void initState() {
@@ -22,8 +22,14 @@ class _CameraState extends State<Camera> {
     if (widget.cameras == null || widget.cameras.length < 1) {
       print('No camera is found');
     } else {
-      controller = new CameraController(
-        widget.cameras[0],
+      flip_cam();
+      
+    }
+  }
+
+  void flip_cam(){
+    controller = new CameraController(
+        widget.cameras[front? 1:0],
         ResolutionPreset.high,
       );
       controller.initialize().then((_) {
@@ -32,7 +38,6 @@ class _CameraState extends State<Camera> {
         }
         setState(() {});
       });
-    }
   }
 
   @override
@@ -54,6 +59,16 @@ class _CameraState extends State<Camera> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Raw Camera Data'),
+        actions: <Widget>[
+          ElevatedButton(
+            child: Text("Flip camera"),
+            onPressed: () {
+              front = !front;
+              print(front);
+              flip_cam();
+            }
+          )
+        ],
       ),
       body: MaterialApp(
         home: CameraPreview(controller),
