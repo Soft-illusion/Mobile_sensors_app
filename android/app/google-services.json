@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "461923555433",
+    "project_id": "mobile-sensors-e6ced",
+    "storage_bucket": "mobile-sensors-e6ced.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461923555433:android:351665472e5466de1c6af8",
+        "android_client_info": {
+          "package_name": "com.example.mobile_sensors"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461923555433-b7q8k8thhlp45klqrl6rogi9k95otnme.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobile_sensors",
+            "certificate_hash": "cbe4244cd1fa5abeeae20d4a9f0b2e542426388c"
+          }
+        },
+        {
+          "client_id": "461923555433-qlhug32dhmkdbo5ih3ps6hsbqfpob0ob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKKQ5YfbPHa8GOgfQP51aI85DhaR0ez9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461923555433-qlhug32dhmkdbo5ih3ps6hsbqfpob0ob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

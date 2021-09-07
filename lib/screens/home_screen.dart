@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:camera/camera.dart';
@@ -8,15 +9,28 @@ import 'package:mobile_sensors/screens/gps.dart';
 
 
 class Homescreen extends StatefulWidget {
-  // const Homescreen({Key? key}) : super(key: key);
-  final List<CameraDescription> cameras;
+  const Homescreen({Key? key, required User user})
+      : _user = user,
+        super(key: key);
 
-  Homescreen(this.cameras);
+  final User _user;
+
   @override
   _HomescreenState createState() => _HomescreenState();
 }
 
 class _HomescreenState extends State<Homescreen> {
+  List<CameraDescription> cameras = [];
+
+  Future<void> startCamera() async{
+    WidgetsFlutterBinding.ensureInitialized();
+    try {
+      cameras = await availableCameras();
+    } on CameraException catch (e) {
+      print('Error: $e.code\nError Message: $e.message');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,10 +95,11 @@ class _HomescreenState extends State<Homescreen> {
                     padding: EdgeInsets.only(top: 30.0),
                     child: ElevatedButton(
                       onPressed: () {
+                        startCamera();
                         print("Camera clicked");
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                              return Camera(widget.cameras);
+                              return Camera(cameras);
                             }));
                       },
                       child: Text(

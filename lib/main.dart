@@ -1,18 +1,8 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:mobile_sensors/screens/home_screen.dart';
-import 'package:camera/camera.dart';
+// import 'package:mobile_sensors/screens/home_screen.dart';
 import 'package:mobile_sensors/screens/sign_in_screen.dart';
 
-List<CameraDescription> cameras = [];
-
-Future<Null> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  try {
-    cameras = await availableCameras();
-  } on CameraException catch (e) {
-    print('Error: $e.code\nError Message: $e.message');
-  }
+void main() {
   runApp(MyApp());
 }
 
@@ -28,8 +18,8 @@ class MyApp extends StatelessWidget {
         accentColor: Color(0xFFD8ECF1),
         scaffoldBackgroundColor: Color(0xFFF1EABA),
       ),
-      home: Homescreen(cameras),
-      // home: SignInScreen(),
+      // home: Homescreen(),
+      home: SignInScreen(),
 
     );
   }

@@ -4,6 +4,9 @@
  import 'package:google_sign_in/google_sign_in.dart';
  import 'package:flutter/foundation.dart' show kIsWeb;
  import 'package:mobile_sensors/screens/user_info_screen.dart';
+import 'package:mobile_sensors/screens/home_screen.dart';
+
+
 
 
 class Authentication {
@@ -17,7 +20,7 @@ class Authentication {
   if (user != null) {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (context) => UserInfoScreen(
+        builder: (context) => Homescreen(
           user: user,
         ),
       ),

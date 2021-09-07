@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_sensors/utils/authentication.dart';
 import 'package:mobile_sensors/screens/user_info_screen.dart';
+import 'package:mobile_sensors/screens/home_screen.dart';
+
 
 
 class GoogleSignInButton extends StatefulWidget {
@@ -45,12 +47,10 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                 if (user != null) {
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(
-                      builder: (context) => UserInfoScreen(
+                      builder: (context) => Homescreen(
                         user: user,
                       ),
-                      // builder: (context) => Homescreen(
-                      // ),
-                    ),
+                    )
                   );
                 }
               },
