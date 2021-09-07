@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobile_sensors/screens/home_screen.dart';
 import 'package:camera/camera.dart';
+import 'package:mobile_sensors/screens/sign_in_screen.dart';
 
 List<CameraDescription> cameras = [];
 
@@ -28,6 +29,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xFFF1EABA),
       ),
       home: Homescreen(cameras),
+      // home: SignInScreen(),
+
     );
   }
 }
