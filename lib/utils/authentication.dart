@@ -3,10 +3,7 @@
  import 'package:firebase_auth/firebase_auth.dart';
  import 'package:google_sign_in/google_sign_in.dart';
  import 'package:flutter/foundation.dart' show kIsWeb;
- import 'package:mobile_sensors/screens/user_info_screen.dart';
-import 'package:mobile_sensors/screens/home_screen.dart';
-
-
+  import 'package:mobile_sensors/screens/home_screen.dart';
 
 
 class Authentication {

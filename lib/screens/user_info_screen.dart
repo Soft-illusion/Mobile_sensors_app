@@ -51,12 +51,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.blue,
-        title: AppBar(),
-      ),
+      backgroundColor: Colors.blueGrey,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(
@@ -91,14 +86,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                         ),
                       ),
                     ),
-              SizedBox(height: 16.0),
-              Text(
-                'Hello',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 26,
-                ),
-              ),
               SizedBox(height: 8.0),
               Text(
                 _user.displayName!,

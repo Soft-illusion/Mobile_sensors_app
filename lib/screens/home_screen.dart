@@ -6,6 +6,8 @@ import 'package:mobile_sensors/screens/camera.dart';
 import 'package:mobile_sensors/screens/imu.dart';
 import 'package:mobile_sensors/screens/ros_master_uri.dart';
 import 'package:mobile_sensors/screens/gps.dart';
+import 'package:mobile_sensors/screens/user_info_screen.dart';
+
 
 
 class Homescreen extends StatefulWidget {
@@ -43,6 +45,20 @@ class _HomescreenState extends State<Homescreen> {
           ),
         ),
         backgroundColor: Colors.brown,
+        actions: <Widget>[
+          ElevatedButton(
+          child: Text("User Info"),
+          onPressed: (){
+            Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => UserInfoScreen(
+                user: widget._user,
+              ),
+            ),
+          );
+          }
+          )
+        ],
       ),
       body: SafeArea(
         child: ListView(
