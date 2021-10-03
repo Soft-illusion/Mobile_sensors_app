@@ -94,7 +94,7 @@ class _HomescreenState extends State<Homescreen> {
                       print("GPS clicked");
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return GPS();
+                        return GPSScreen();
                       }));
                     },
                     child: Text(
@@ -115,7 +115,7 @@ class _HomescreenState extends State<Homescreen> {
                         print("Camera clicked");
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                              return Camera(cameras);
+                              return CameraScreen(cameras);
                             }));
                       },
                       child: Text(
@@ -134,7 +134,7 @@ class _HomescreenState extends State<Homescreen> {
                       print("Stream data clicked");
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return RosStreamer();
+                        return RosStreamer(cameras);
                       }));
                     },
                     child: Text(

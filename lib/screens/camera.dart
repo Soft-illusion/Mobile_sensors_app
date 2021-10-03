@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:mobile_sensors/src/camera_class.dart';
 
 
-class Camera extends StatefulWidget {
+class CameraScreen extends StatefulWidget {
   List<CameraDescription> cameras = [];
 
-  Camera(this.cameras);
+  CameraScreen(this.cameras);
 
   @override
   _CameraState createState() => _CameraState();
 }
 
-class _CameraState extends State<Camera> {
+class _CameraState extends State<CameraScreen> {
   late CameraController controller;
   bool front = false;
+  // Camera cam_obj = new Camera();
 
   @override
   void initState() {
     super.initState();
-
+    
     if (widget.cameras == null || widget.cameras.length < 1) {
       print('No camera is found');
     } else {
       flip_cam();
-      
+
     }
   }
 
@@ -49,7 +51,7 @@ class _CameraState extends State<Camera> {
 
   @override
   Widget build(BuildContext context) {
-    if (controller == null || !controller.value.isInitialized) {
+     if (controller == null || !controller.value.isInitialized) {
       return Scaffold(
       appBar: AppBar(
         title: const Text('No cameras available'),
